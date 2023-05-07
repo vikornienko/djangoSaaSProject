@@ -2,13 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}{% endblock title %} | Linko</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-</h1>
+<nav class="p-6 flex items-center justify-between bg-gray-800">
+    <a href="/" class="text-xl text-cyan-500">Linko</a>
+    <div class="space-x-4">
+        <a href="{% url 'core:about' %}" class="text-white">About</a>
+        <a href="{% url 'core:pricing' %}" class="text-white">Pricing</a>
+
+        <a href="" class="text-white"></a>
+        <a href="" class="py-4 px-6 bg-cyan-500 text-white rounded-xl">Sign up</a>
+        <a href="" class="py-4 px-6 bg-gray-500 text-white rounded-xl">Log in</a>
+    </div>
+</nav>
+<main class="p-6">
+    {% block content %}
+
+    {% endblock content %}
+</main>
+
+
+<footer class="p-6 bg-gray-800">
+    <p class="text-xs text-gray-400">Copyright (c) 2023 -Lynko</p>
+
+</footer>
 
 </body>
 </html>
