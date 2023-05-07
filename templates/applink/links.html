@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+
+{% block title %}Links{% endblock title %}
+
+{% block content %}
+    <h1 class="mb-6 text-xl">Links</h1>
+    <div class="grid grid-cols-3 gap3">
+        {% for link in links %}
+            <div class="bg-gray-100 p-6 rounded-xl">
+                <h2 class="mb-4 text-xl">{{ link.name }}</h2>
+                {% if link.description %}
+                    <p class="mb-4 text-xs">{{ link.description }}</p>
+                {% endif %}
+                <a href="{{ link.url }}" class="text-cyan-700" target="_blank">Open link</a>
+
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock content %}
