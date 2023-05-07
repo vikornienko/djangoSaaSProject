@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Project apps
     'appaccounts.apps.AppaccountsConfig',
+    'applink.apps.ApplinkConfig',
     'core.apps.CoreConfig',
 ]
 
