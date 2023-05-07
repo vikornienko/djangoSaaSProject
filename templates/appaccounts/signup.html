@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    Sign Up
+{% endblock title %}
+
+{% block content %}
+    <h1 class="text-xl">Sign Up on Linko</h1>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button class="mt-4 py-4 px-6 bg-cyan-500 text-white rounded-xl">Submit</button>
+    </form>
+
+{% endblock content %}
