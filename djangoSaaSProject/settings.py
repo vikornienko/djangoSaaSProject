@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Project apps
     'appaccounts.apps.AppaccountsConfig',
+    'appdashboard.apps.AppdashboardConfig',
     'applink.apps.ApplinkConfig',
     'core.apps.CoreConfig',
 ]
@@ -128,4 +129,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "appaccounts.CustomUser"
 
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/"

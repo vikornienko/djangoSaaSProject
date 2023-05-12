@@ -1,12 +1,14 @@
 from django.urls import path
 
-from .views import create_category, create_link, links
+from .views import categories, create_category, create_link, delete_category,edit_category, links
 
 app_name = "applink"
 
 urlpatterns = [
     path("", links, name="links"),
-    path("create-category/", create_category, name="create_category"),
     path("create-link/", create_link, name="create_link"),
-
+    path("categories/", categories, name="categories"),
+    path("categories/<int:pk>/edit/", edit_category, name="edit_category"),
+    path("categories/<int:pk>/delete/", delete_category, name="delete_category"),
+    path("categories/create-category/", create_category, name="create_category"),
 ]
