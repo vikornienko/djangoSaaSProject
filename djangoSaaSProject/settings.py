@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third-party apps
+    'djstripe',
     # Project apps
     'appaccounts.apps.AppaccountsConfig',
     'appdashboard.apps.AppdashboardConfig',
@@ -132,3 +134,10 @@ AUTH_USER_MODEL = "appaccounts.CustomUser"
 LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/"
+
+# djstipe settings
+STRIPE_TEST_PUBLIC_KEY ='your_pk_test'
+STRIPE_TEST_SECRET_KEY = 'your_secret_key'
+STRIPE_LIVE_MODE = False  # Change to True in production
+DJSTRIPE_WEBHOOK_SECRET = "whsec_xxx"
+DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"

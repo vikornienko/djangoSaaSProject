@@ -24,4 +24,6 @@ urlpatterns = [
     path('links/', include('applink.urls')),
     path('dashboard/', include('appdashboard.urls')),
     path('admin/', admin.site.urls),
+    # url for djstripe app
+    path('stripe/', include('djstripe.urls', namespace='djstripe')),
 ]
