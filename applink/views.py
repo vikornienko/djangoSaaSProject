@@ -6,11 +6,14 @@ from .models import Category, Link
 
 @login_required
 def links(request):
+    category = request.GET.get("category", "")
     links = Link.objects.filter(created_by=request.user)
+    if category:
+        links = links.filter(category_id=category)
 
     return render(request,
                   "applink/links.html",
-                  {"links": links})
+                  {"links": links, "category": category})
 
 
 @login_required
@@ -34,7 +37,32 @@ def create_link(request):
         form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
     return render(request,
             "applink/create_link.html",
-            {"form": form})
+            {"form": form,
+             "title": "Create link"})
+
+
+@login_required
+def edit_link(request, pk):
+    link = get_object_or_404(Link, created_by=request.user, pk=pk)
+    if request.method == "POST":
+        form = LinkForm(request.POST, instance=link)
+        if form.is_valid():
+            form.save()
+            return redirect("/links/")
+    else:
+        form = LinkForm(instance=link)
+        form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
+    return render(request,
+            "applink/create_link.html",
+            {"form": form,
+             "title": "Edit link"})
+
+
+@login_required
+def delete_link(request, pk):
+    link = get_object_or_404(Link, created_by=request.user, pk=pk)
+    link.delete()
+    return redirect("/links/")
 
 
 @login_required

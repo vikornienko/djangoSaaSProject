@@ -1,11 +1,11 @@
 {% extends "core/base.html" %}
 
 {% block title %}
-    Create link
+    {{ title }}
 {% endblock title %}
 
 {% block content %}
-    <h1 class="text-xl">Create link</h1>
+    <h1 class="text-xl">{{ title }}</h1>
 
     <form method="post" action=".">
         {% csrf_token %}
